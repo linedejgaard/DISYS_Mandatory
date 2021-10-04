@@ -1,6 +1,7 @@
 syntax = "proto3";
+option go_package = "./";
 
-package main;
+package GRPC_Protocol;
 
 service CourseMethods {
     rpc postCourse(PostCourseRequest) returns (PostCourseReply) {}
