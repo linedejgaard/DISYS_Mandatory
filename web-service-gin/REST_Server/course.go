@@ -29,8 +29,8 @@ var courses = []course{
 	{ID: "9", StudentRating: 6.1, Name: "IDBS", Teacher: "Bjórn", ECTS: 7.5},
 }
 
-// postCourses adds a course from JSON received in the request body.
-func postCourses(c *gin.Context) {
+// postCourse adds a course from JSON received in the request body.
+func postCourse(c *gin.Context) {
 	var newCourse course
 
 	// Call BindJSON to bind the received JSON to

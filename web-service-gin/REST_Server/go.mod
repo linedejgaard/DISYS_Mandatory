@@ -1,4 +1,4 @@
-module Server/web-service-gin
+module REST_Server/web-service-gin
 
 go 1.17
 

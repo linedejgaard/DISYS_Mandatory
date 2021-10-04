@@ -2,7 +2,14 @@ syntax = "proto3";
 
 package main;
 
-message Course {
+service CourseMethods {
+    rpc postCourse(PostCourseRequest) returns (PostCourseReply) {}
+    rpc getCourseByID(GetCourseByIDRequest) returns (GetCourseByIDReply) {}
+    rpc getCourses(GetCourseListRequest) returns (GetCourseListReply) {}
+    rpc deleteCourseByID(DeleteCourseByIDRequest) returns (DeleteCourseByIDReply) {}
+}
+
+message Course{
     string ID = 1;
     float StudentRating = 2;
     string Name = 3;
@@ -10,12 +17,42 @@ message Course {
     float ECTS = 5;
 }
 
-service CourseMethods {
-    rpc postCourses(Course) returns (Course) {}
-    rpc getCourseByID(Course) returns (Course) {}
-    rpc getCourses(Course) returns (Course) {}
-    rpc deleteCourseByID(Course) returns (Course) {}
-    rpc RemoveIndex(Course) returns (Course) {}
-    
+message PostCourseRequest{
+    string ID = 1;
+    float StudentRating = 2;
+    string Name = 3;
+    string Teacher = 4;
+    float ECTS = 5;
+}
 
+message PostCourseReply{
+    string message = 1;
+}
+
+message GetCourseByIDRequest{
+    string ID = 1;
+}
+
+message GetCourseByIDReply{
+    string ID = 1;
+    float StudentRating = 2;
+    string Name = 3;
+    string Teacher = 4;
+    float ECTS = 5;
+}
+
+message GetCourseListRequest{
+    string message = 1;
+}
+
+message GetCourseListReply{
+    repeated Course course = 1;
+}
+
+message DeleteCourseByIDRequest{
+    string ID = 1;
+}
+
+message DeleteCourseByIDReply{
+    string message = 1;
 }
